@@ -1,0 +1,377 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>LEÑA Catálogo</title>
+<meta name="robots" content="noindex">
+<meta name="description" content="LEÑA · Ropa y accesorios cristianos. Aviva el fuego.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&family=Cormorant+Garamond:ital,wght@1,400;1,500&display=swap">
+<link rel="icon" href="logo-lena.svg">
+<style>
+/* Layout: una sola columna sobria, bandas negras a todo el ancho, contenido centrado a 1120px; el fuego (naranja/dorado) solo en la llama y en las acciones */
+:root{
+  --ink:#0A0A0A;        /* fondo principal, negro mate */
+  --char:#131211;       /* superficies y tarjetas */
+  --soot:#1C1A19;       /* bordes de imagen, hover */
+  --line:#2C2926;       /* filetes */
+  --bone:#EEEAE4;       /* texto principal, blanco hueso */
+  --ash:#9A948D;        /* texto secundario */
+  --beige:#C8BBA8;      /* líneas del logo, detalles */
+  --fire:#E8662A;       /* llama, acción principal */
+  --ember:#F6C453;      /* centro de la llama */
+  --f-display:"Montserrat","Helvetica Neue",Arial,sans-serif;
+  --f-body:"Montserrat","Helvetica Neue",Arial,sans-serif;
+  --f-verse:"Cormorant Garamond","Georgia","Times New Roman",serif;
+  --wrap:1120px;
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important;animation:none!important}}
+body{background:var(--ink);color:var(--bone);font-family:var(--f-body);font-weight:400;font-size:16px;line-height:1.65;-webkit-font-smoothing:antialiased}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--ink)}
+img{display:block;max-width:100%;height:auto}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--ember);outline-offset:3px}
+.wrap{max-width:var(--wrap);margin-inline:auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+.label{font-family:var(--f-display);font-size:.72rem;font-weight:500;letter-spacing:.32em;text-transform:uppercase;color:var(--ash)}
+h1,h2,h3{font-family:var(--f-display);font-weight:300;text-transform:uppercase;text-wrap:balance;margin:0}
+h2{font-size:clamp(1.35rem,2.6vw,1.9rem);letter-spacing:.24em;line-height:1.35}
+h3{font-size:.95rem;font-weight:500;letter-spacing:.16em;line-height:1.4}
+p{margin:0}
+.cross{display:inline-block;width:14px;height:24px;color:var(--beige)}
+
+/* Aviso de vista previa */
+.preview{background:var(--char);border-bottom:1px solid var(--line);font-size:.75rem;color:var(--ash);text-align:center}
+.preview .wrap{padding-block:8px}
+.preview strong{color:var(--beige);font-weight:500}
+
+/* Encabezado */
+header{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:rgba(10,10,10,.94);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+.bar{display:flex;align-items:center;justify-content:space-between;gap:16px;padding-block:14px}
+.logo-compact{width:112px;height:auto;color:var(--bone)}
+nav ul{display:flex;gap:28px;list-style:none;margin:0;padding:0}
+nav a{text-decoration:none;font-size:.72rem;font-weight:500;letter-spacing:.24em;text-transform:uppercase;color:var(--ash);transition:color .2s}
+nav a:hover{color:var(--bone)}
+.cart{display:inline-flex;align-items:center;gap:10px;background:none;border:1px solid var(--line);color:var(--bone);border-radius:999px;padding:8px 14px;font:500 .72rem/1 var(--f-display);letter-spacing:.2em;text-transform:uppercase;cursor:pointer;transition:border-color .2s}
+.cart:hover{border-color:var(--beige)}
+.cart svg{width:16px;height:16px}
+.count{min-width:20px;height:20px;border-radius:999px;background:var(--fire);color:var(--ink);display:inline-grid;place-items:center;font-size:.7rem;font-weight:600;letter-spacing:0;font-variant-numeric:tabular-nums}
+@media (max-width:760px){nav{display:none}.cart span.txt{display:none}}
+
+/* Portada */
+.hero .wrap{display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(28px,5vw,72px);align-items:center;padding-block:clamp(40px,7vw,96px)}
+.hero-copy{display:flex;flex-direction:column;gap:28px;min-width:0}
+.logo{width:min(100%,420px);height:auto;color:var(--bone)}
+.hero h1{font-size:clamp(1.6rem,3.6vw,2.6rem);letter-spacing:.2em;line-height:1.35}
+.hero p.lead{color:var(--ash);max-width:34ch;font-size:1.02rem}
+.actions{display:flex;flex-wrap:wrap;gap:12px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;padding:15px 26px;border-radius:2px;font:500 .74rem/1 var(--f-display);letter-spacing:.26em;text-transform:uppercase;text-decoration:none;cursor:pointer;border:1px solid transparent;transition:background .2s,border-color .2s,color .2s}
+.btn-fire{background:var(--fire);color:var(--ink)}
+.btn-fire:hover{background:var(--ember)}
+.btn-line{border-color:var(--line);color:var(--bone);background:transparent}
+.btn-line:hover{border-color:var(--beige)}
+.hero-img{position:relative;min-width:0}
+.hero-img img{width:100%;aspect-ratio:1/1;object-fit:cover;border:1px solid var(--soot)}
+.hero-img figcaption{position:absolute;left:16px;bottom:14px;font-size:.66rem;letter-spacing:.24em;text-transform:uppercase;color:var(--ash);background:rgba(10,10,10,.7);padding:6px 10px}
+@media (max-width:820px){.hero .wrap{grid-template-columns:1fr}.hero-img{order:-1}}
+
+/* Secciones */
+section.block{border-top:1px solid var(--line)}
+section.block>.wrap{padding-block:clamp(56px,8vw,104px);display:flex;flex-direction:column;gap:clamp(28px,4vw,44px)}
+.head{display:flex;flex-direction:column;gap:12px;align-items:center;text-align:center}
+.head p{color:var(--ash);max-width:52ch}
+
+/* Categorías */
+.cats{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+.cat{position:relative;display:block;text-decoration:none;background:var(--char);border:1px solid var(--soot);overflow:hidden}
+.cat img,.cat .ph{width:100%;aspect-ratio:1/1;object-fit:cover;transition:transform .5s ease}
+.cat:hover img{transform:scale(1.03)}
+.cat .name{position:absolute;inset:auto 0 0 0;display:flex;justify-content:space-between;align-items:center;padding:18px 20px;background:linear-gradient(to top,rgba(10,10,10,.92),rgba(10,10,10,0));font:500 .8rem/1 var(--f-display);letter-spacing:.3em;text-transform:uppercase}
+.cat .name em{font-style:normal;color:var(--ash);font-size:.66rem;letter-spacing:.2em}
+.ph{display:grid;place-items:center;gap:10px;background:var(--char);color:var(--ash);text-align:center;font-size:.68rem;letter-spacing:.22em;text-transform:uppercase}
+.ph svg{width:34px;height:auto;margin-inline:auto}
+@media (max-width:700px){.cats{grid-template-columns:1fr 1fr}.cats .cat:last-child{grid-column:1/-1}.cats .cat:last-child img{aspect-ratio:2/1}}
+
+/* Productos */
+.grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px}
+@media (max-width:960px){.grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.card{display:flex;flex-direction:column;background:var(--char);border:1px solid var(--soot);min-width:0}
+.card .media{position:relative}
+.card .media img,.card .media .ph{width:100%;aspect-ratio:1/1;object-fit:cover}
+.tag{position:absolute;top:10px;left:10px;font-size:.6rem;font-weight:500;letter-spacing:.22em;text-transform:uppercase;color:var(--bone);border:1px solid var(--line);background:rgba(10,10,10,.75);padding:4px 8px}
+.card .body{display:flex;flex-direction:column;gap:10px;padding:18px 16px 16px;flex:1}
+.card .cat-name{font-size:.62rem;letter-spacing:.26em;text-transform:uppercase;color:var(--ash)}
+.price{font-variant-numeric:tabular-nums;color:var(--beige);font-size:.9rem}
+.sizes{display:flex;flex-wrap:wrap;gap:6px}
+.sizes span{font-size:.66rem;letter-spacing:.1em;border:1px solid var(--line);padding:3px 8px;color:var(--ash)}
+.card .add{margin-top:auto;width:100%;padding:12px 10px;font-size:.66rem}
+
+/* Packaging */
+.pack{display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px;align-items:stretch}
+.pack img{width:100%;aspect-ratio:1/1;object-fit:cover;border:1px solid var(--soot)}
+.pack-copy{display:flex;flex-direction:column;justify-content:center;gap:18px;padding:clamp(8px,2vw,24px);min-width:0}
+.pack-copy ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:12px;color:var(--ash)}
+.pack-copy li{display:flex;gap:12px;align-items:baseline}
+.pack-copy li::before{content:"";width:10px;height:1px;background:var(--beige);flex:none;transform:translateY(-4px)}
+@media (max-width:860px){.pack{grid-template-columns:1fr 1fr}.pack-copy{grid-column:1/-1;order:-1;text-align:left}}
+
+/* Ora · Lee · Vive · Comparte */
+.olvc{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));border-block:1px solid var(--line)}
+.olvc div{display:flex;flex-direction:column;align-items:center;gap:14px;padding-block:32px;border-left:1px solid var(--line)}
+.olvc div:first-child{border-left:0}
+.olvc svg{width:34px;height:34px;color:var(--beige)}
+.olvc span{font:400 .82rem/1 var(--f-display);letter-spacing:.42em;text-transform:uppercase;padding-left:.42em}
+@media (max-width:600px){.olvc{grid-template-columns:1fr 1fr}.olvc div:nth-child(3){border-left:0}.olvc div:nth-child(n+3){border-top:1px solid var(--line)}}
+
+/* Cómo comprar */
+.steps{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;counter-reset:s;list-style:none;margin:0;padding:0}
+.steps li{counter-increment:s;display:flex;flex-direction:column;gap:12px;padding:28px 24px;border:1px solid var(--line);min-width:0}
+.steps li::before{content:counter(s);font:300 2.2rem/1 var(--f-display);color:var(--fire)}
+.steps p{color:var(--ash);font-size:.95rem}
+@media (max-width:760px){.steps{grid-template-columns:1fr}}
+.pay{display:flex;flex-wrap:wrap;justify-content:center;gap:10px 28px;color:var(--ash);font-size:.8rem;letter-spacing:.14em;text-transform:uppercase}
+
+/* Versículo */
+.verse{position:relative;overflow:hidden;border-top:1px solid var(--line)}
+.verse .wrap{padding-block:clamp(72px,10vw,128px) clamp(150px,18vw,230px);display:flex;flex-direction:column;align-items:center;gap:22px;text-align:center;position:relative;z-index:1}
+.verse blockquote{margin:0;font-family:var(--f-verse);font-style:italic;font-weight:400;font-size:clamp(1.45rem,3.2vw,2.3rem);line-height:1.35;max-width:30ch;color:var(--bone)}
+.verse cite{font-style:normal}
+.mountains{position:absolute;inset:auto 0 0 0;width:100%;height:clamp(120px,16vw,210px);color:var(--soot)}
+
+/* Pie */
+footer{border-top:1px solid var(--line);background:var(--char)}
+footer .wrap{padding-block:48px 32px;display:grid;grid-template-columns:1.2fr 1fr 1fr;gap:32px}
+footer .logo{width:200px}
+footer h3{font-size:.7rem;color:var(--ash);margin-bottom:14px}
+footer ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:8px;font-size:.92rem}
+footer ul a{text-decoration:none}
+footer ul a:hover{color:var(--beige)}
+.fine{grid-column:1/-1;display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px;border-top:1px solid var(--line);padding-top:20px;color:var(--ash);font-size:.75rem}
+@media (max-width:760px){footer .wrap{grid-template-columns:1fr 1fr}footer .wrap>div:first-child{grid-column:1/-1}}
+
+/* Aviso al agregar */
+.toast{position:fixed;left:50%;bottom:calc(20px + env(safe-area-inset-bottom,0px));transform:translate(-50%,20px);opacity:0;pointer-events:none;background:var(--bone);color:var(--ink);padding:12px 18px;font-size:.82rem;font-weight:500;letter-spacing:.04em;transition:opacity .25s,transform .25s;z-index:30;max-width:calc(100% - 32px);text-align:center}
+.toast.show{opacity:1;transform:translate(-50%,0)}
+</style>
+</head>
+<body>
+
+<div class="preview"><div class="wrap"><strong>Vista previa del diseño</strong> · las fotos y precios son de ejemplo hasta tener los reales</div></div>
+
+<header>
+  <div class="wrap bar">
+    <a href="#inicio" aria-label="LEÑA, ir al inicio"><svg class="logo-compact" viewBox="228 468 800 232" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="LEÑA"><path fill="currentColor" d="M235.0,523.0 L258.0,523.0 L258.0,673.0 L363.0,673.0 L363.0,693.0 L235.0,693.0Z M425.0,523.0 L560.0,523.0 L560.0,541.0 L445.0,541.0 L445.0,597.0 L548.0,597.0 L548.0,614.0 L445.0,614.0 L445.0,675.0 L560.0,675.0 L560.0,693.0 L425.0,693.0Z M623.0,693.0 L623.0,523.0 L651.0,523.0 L770.0,684.0 L770.0,523.0 L789.0,523.0 L789.0,693.0 L749.0,693.0 L642.0,549.0 L642.0,693.0Z M841.0,693.0 L928.0,523.0 L938.0,523.0 L1020.0,693.0 L996.0,693.0 L933.0,569.0 L865.0,693.0Z"/><path fill="currentColor" d="M659.0,500.0 L660.8,496.1 L662.9,492.7 L665.3,489.7 L667.9,487.1 L670.7,484.9 L673.7,483.2 L676.8,481.8 L680.0,480.8 L683.3,480.1 L686.7,479.7 L690.1,479.7 L693.6,480.0 L697.0,480.6 L700.4,481.5 L703.8,482.6 L707.0,484.0 L709.8,485.3 L712.6,486.4 L715.4,487.4 L718.2,488.3 L720.9,489.0 L723.7,489.6 L726.4,489.9 L729.0,490.0 L731.6,489.9 L734.1,489.5 L736.6,488.9 L739.1,487.9 L741.4,486.7 L743.7,485.1 L745.9,483.3 L748.0,481.0 L755.0,483.0 L753.0,486.5 L750.8,489.7 L748.4,492.4 L745.8,494.8 L743.1,496.7 L740.2,498.3 L737.2,499.6 L734.1,500.5 L730.9,501.1 L727.7,501.4 L724.4,501.3 L721.1,501.0 L717.8,500.4 L714.5,499.5 L711.2,498.4 L708.0,497.0 L704.7,495.6 L701.4,494.3 L698.2,493.3 L695.1,492.5 L692.0,491.8 L689.1,491.4 L686.2,491.3 L683.4,491.4 L680.7,491.7 L678.0,492.4 L675.5,493.4 L673.0,494.6 L670.6,496.2 L668.3,498.1 L666.1,500.4 L664.0,503.0Z"/><path fill="#E8662A" d="M723.0,545.0 L721.4,546.5 L719.9,548.1 L718.5,549.8 L717.2,551.5 L716.1,553.3 L715.1,555.1 L714.3,556.9 L713.6,558.8 L713.1,560.6 L712.7,562.5 L712.5,564.5 L712.5,566.4 L712.6,568.3 L712.9,570.2 L713.3,572.1 L714.0,574.0 L714.8,576.0 L715.6,577.9 L716.5,579.7 L717.4,581.4 L718.3,583.1 L719.3,584.7 L720.3,586.2 L721.4,587.8 L722.5,589.2 L723.6,590.7 L724.8,592.2 L726.0,593.7 L727.2,595.2 L728.4,596.8 L729.7,598.3 L731.0,600.0 L732.5,601.9 L734.0,603.8 L735.5,605.8 L737.0,607.8 L738.4,609.9 L739.8,612.1 L741.2,614.5 L742.6,616.9 L744.0,619.4 L745.3,622.1 L746.5,625.0 L747.7,628.0 L748.9,631.2 L750.0,634.6 L751.0,638.2 L752.0,642.0 L753.2,639.2 L754.3,636.4 L755.1,633.6 L755.8,630.8 L756.3,628.0 L756.7,625.3 L756.8,622.6 L756.9,619.9 L756.8,617.2 L756.5,614.6 L756.1,612.0 L755.5,609.5 L754.8,607.0 L754.0,604.6 L753.1,602.3 L752.0,600.0 L750.8,598.0 L749.6,596.0 L748.3,594.0 L746.9,592.1 L745.5,590.2 L744.0,588.4 L742.6,586.5 L741.1,584.8 L739.7,583.0 L738.3,581.2 L736.9,579.5 L735.5,577.8 L734.3,576.1 L733.1,574.4 L732.0,572.7 L731.0,571.0 L730.1,569.3 L729.2,567.7 L728.3,566.1 L727.5,564.5 L726.7,563.0 L726.0,561.5 L725.3,559.9 L724.8,558.4 L724.2,556.8 L723.8,555.2 L723.4,553.6 L723.1,552.0 L722.9,550.3 L722.9,548.6 L722.9,546.8 L723.0,545.0Z"/><path fill="#F6C453" d="M731.0,575.0 L730.5,576.7 L730.2,578.3 L730.0,580.0 L730.0,581.6 L730.1,583.2 L730.3,584.8 L730.6,586.3 L731.0,587.9 L731.5,589.4 L732.1,590.9 L732.8,592.5 L733.5,594.0 L734.3,595.5 L735.2,597.0 L736.1,598.5 L737.0,600.0 L737.9,601.5 L738.9,603.1 L739.8,604.6 L740.7,606.3 L741.6,607.9 L742.5,609.7 L743.4,611.5 L744.2,613.4 L745.1,615.3 L745.9,617.4 L746.7,619.5 L747.4,621.8 L748.1,624.2 L748.8,626.6 L749.4,629.3 L750.0,632.0 L750.5,629.8 L750.9,627.6 L751.2,625.5 L751.4,623.4 L751.4,621.4 L751.4,619.4 L751.3,617.5 L751.1,615.6 L750.9,613.8 L750.5,612.1 L750.1,610.4 L749.6,608.8 L749.0,607.2 L748.4,605.8 L747.7,604.3 L747.0,603.0 L746.0,601.3 L745.0,599.7 L744.0,598.2 L743.0,596.7 L741.9,595.1 L740.8,593.6 L739.7,592.1 L738.6,590.5 L737.6,588.9 L736.5,587.2 L735.5,585.4 L734.5,583.6 L733.5,581.6 L732.6,579.6 L731.8,577.4 L731.0,575.0Z"/></svg></a>
+    <nav aria-label="Secciones">
+      <ul>
+        <li><a href="#catalogo">Catálogo</a></li>
+        <li><a href="#packaging">Tu pedido</a></li>
+        <li><a href="#como-comprar">Cómo comprar</a></li>
+        <li><a href="#contacto">Contacto</a></li>
+      </ul>
+    </nav>
+    <button class="cart" id="cart-btn" type="button" aria-label="Ver pedido">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><path d="M5 8h14l-1.2 12H6.2L5 8Z"/><path d="M9 8V6a3 3 0 0 1 6 0v2"/></svg>
+      <span class="txt">Pedido</span>
+      <span class="count" id="cart-count">0</span>
+    </button>
+  </div>
+</header>
+
+<main id="inicio">
+  <section class="hero">
+    <div class="wrap">
+      <div class="hero-copy">
+        <svg class="logo" viewBox="228 468 800 318" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="LEÑA, Aviva el fuego"><path fill="currentColor" d="M235.0,523.0 L258.0,523.0 L258.0,673.0 L363.0,673.0 L363.0,693.0 L235.0,693.0Z M425.0,523.0 L560.0,523.0 L560.0,541.0 L445.0,541.0 L445.0,597.0 L548.0,597.0 L548.0,614.0 L445.0,614.0 L445.0,675.0 L560.0,675.0 L560.0,693.0 L425.0,693.0Z M623.0,693.0 L623.0,523.0 L651.0,523.0 L770.0,684.0 L770.0,523.0 L789.0,523.0 L789.0,693.0 L749.0,693.0 L642.0,549.0 L642.0,693.0Z M841.0,693.0 L928.0,523.0 L938.0,523.0 L1020.0,693.0 L996.0,693.0 L933.0,569.0 L865.0,693.0Z"/><path fill="currentColor" d="M659.0,500.0 L660.8,496.1 L662.9,492.7 L665.3,489.7 L667.9,487.1 L670.7,484.9 L673.7,483.2 L676.8,481.8 L680.0,480.8 L683.3,480.1 L686.7,479.7 L690.1,479.7 L693.6,480.0 L697.0,480.6 L700.4,481.5 L703.8,482.6 L707.0,484.0 L709.8,485.3 L712.6,486.4 L715.4,487.4 L718.2,488.3 L720.9,489.0 L723.7,489.6 L726.4,489.9 L729.0,490.0 L731.6,489.9 L734.1,489.5 L736.6,488.9 L739.1,487.9 L741.4,486.7 L743.7,485.1 L745.9,483.3 L748.0,481.0 L755.0,483.0 L753.0,486.5 L750.8,489.7 L748.4,492.4 L745.8,494.8 L743.1,496.7 L740.2,498.3 L737.2,499.6 L734.1,500.5 L730.9,501.1 L727.7,501.4 L724.4,501.3 L721.1,501.0 L717.8,500.4 L714.5,499.5 L711.2,498.4 L708.0,497.0 L704.7,495.6 L701.4,494.3 L698.2,493.3 L695.1,492.5 L692.0,491.8 L689.1,491.4 L686.2,491.3 L683.4,491.4 L680.7,491.7 L678.0,492.4 L675.5,493.4 L673.0,494.6 L670.6,496.2 L668.3,498.1 L666.1,500.4 L664.0,503.0Z"/><path fill="#E8662A" d="M723.0,545.0 L721.4,546.5 L719.9,548.1 L718.5,549.8 L717.2,551.5 L716.1,553.3 L715.1,555.1 L714.3,556.9 L713.6,558.8 L713.1,560.6 L712.7,562.5 L712.5,564.5 L712.5,566.4 L712.6,568.3 L712.9,570.2 L713.3,572.1 L714.0,574.0 L714.8,576.0 L715.6,577.9 L716.5,579.7 L717.4,581.4 L718.3,583.1 L719.3,584.7 L720.3,586.2 L721.4,587.8 L722.5,589.2 L723.6,590.7 L724.8,592.2 L726.0,593.7 L727.2,595.2 L728.4,596.8 L729.7,598.3 L731.0,600.0 L732.5,601.9 L734.0,603.8 L735.5,605.8 L737.0,607.8 L738.4,609.9 L739.8,612.1 L741.2,614.5 L742.6,616.9 L744.0,619.4 L745.3,622.1 L746.5,625.0 L747.7,628.0 L748.9,631.2 L750.0,634.6 L751.0,638.2 L752.0,642.0 L753.2,639.2 L754.3,636.4 L755.1,633.6 L755.8,630.8 L756.3,628.0 L756.7,625.3 L756.8,622.6 L756.9,619.9 L756.8,617.2 L756.5,614.6 L756.1,612.0 L755.5,609.5 L754.8,607.0 L754.0,604.6 L753.1,602.3 L752.0,600.0 L750.8,598.0 L749.6,596.0 L748.3,594.0 L746.9,592.1 L745.5,590.2 L744.0,588.4 L742.6,586.5 L741.1,584.8 L739.7,583.0 L738.3,581.2 L736.9,579.5 L735.5,577.8 L734.3,576.1 L733.1,574.4 L732.0,572.7 L731.0,571.0 L730.1,569.3 L729.2,567.7 L728.3,566.1 L727.5,564.5 L726.7,563.0 L726.0,561.5 L725.3,559.9 L724.8,558.4 L724.2,556.8 L723.8,555.2 L723.4,553.6 L723.1,552.0 L722.9,550.3 L722.9,548.6 L722.9,546.8 L723.0,545.0Z"/><path fill="#F6C453" d="M731.0,575.0 L730.5,576.7 L730.2,578.3 L730.0,580.0 L730.0,581.6 L730.1,583.2 L730.3,584.8 L730.6,586.3 L731.0,587.9 L731.5,589.4 L732.1,590.9 L732.8,592.5 L733.5,594.0 L734.3,595.5 L735.2,597.0 L736.1,598.5 L737.0,600.0 L737.9,601.5 L738.9,603.1 L739.8,604.6 L740.7,606.3 L741.6,607.9 L742.5,609.7 L743.4,611.5 L744.2,613.4 L745.1,615.3 L745.9,617.4 L746.7,619.5 L747.4,621.8 L748.1,624.2 L748.8,626.6 L749.4,629.3 L750.0,632.0 L750.5,629.8 L750.9,627.6 L751.2,625.5 L751.4,623.4 L751.4,621.4 L751.4,619.4 L751.3,617.5 L751.1,615.6 L750.9,613.8 L750.5,612.1 L750.1,610.4 L749.6,608.8 L749.0,607.2 L748.4,605.8 L747.7,604.3 L747.0,603.0 L746.0,601.3 L745.0,599.7 L744.0,598.2 L743.0,596.7 L741.9,595.1 L740.8,593.6 L739.7,592.1 L738.6,590.5 L737.6,588.9 L736.5,587.2 L735.5,585.4 L734.5,583.6 L733.5,581.6 L732.6,579.6 L731.8,577.4 L731.0,575.0Z"/><path fill="currentColor" d="M374.5,782.0 L387.1,748.0 L389.2,748.0 L401.7,782.0 L396.7,782.0 L388.1,759.0 L379.6,782.0Z M416.0,748.0 L421.1,748.0 L428.9,770.4 L436.8,748.0 L441.9,748.0 L430.0,782.0 L427.9,782.0Z M456.1,748.0 L460.9,748.0 L460.9,782.0 L456.1,782.0Z M475.2,748.0 L480.3,748.0 L488.1,770.4 L495.9,748.0 L501.0,748.0 L489.1,782.0 L487.1,782.0Z M515.3,782.0 L527.9,748.0 L529.9,748.0 L542.5,782.0 L537.4,782.0 L528.9,759.0 L520.4,782.0Z M589.1,748.0 L608.8,748.0 L608.8,752.8 L593.8,752.8 L593.8,762.6 L606.8,762.6 L606.8,767.4 L593.8,767.4 L593.8,777.2 L608.8,777.2 L608.8,782.0 L589.1,782.0Z M623.1,748.0 L627.8,748.0 L627.8,777.2 L642.1,777.2 L642.1,782.0 L623.1,782.0Z M688.7,748.0 L707.7,748.0 L707.7,752.8 L693.5,752.8 L693.5,764.0 L705.7,764.0 L705.7,768.7 L693.5,768.7 L693.5,782.0 L688.7,782.0Z M722.0,748.0 L726.8,748.0 L726.8,769.4 L726.8,769.4 L726.8,769.9 L726.8,770.4 L726.9,770.9 L727.0,771.4 L727.2,771.9 L727.4,772.4 L727.6,772.9 L727.8,773.3 L728.1,773.8 L728.4,774.2 L728.7,774.6 L729.1,774.9 L729.4,775.3 L729.8,775.6 L730.3,775.9 L730.7,776.2 L731.1,776.4 L731.6,776.6 L732.1,776.8 L732.6,777.0 L733.1,777.1 L733.6,777.2 L734.1,777.2 L734.6,777.2 L735.1,777.2 L735.6,777.2 L736.1,777.1 L736.6,777.0 L737.1,776.8 L737.6,776.6 L738.1,776.4 L738.5,776.2 L738.9,775.9 L739.4,775.6 L739.8,775.3 L740.1,774.9 L740.5,774.6 L740.8,774.2 L741.1,773.8 L741.4,773.3 L741.6,772.9 L741.8,772.4 L742.0,771.9 L742.2,771.4 L742.3,770.9 L742.4,770.4 L742.4,769.9 L742.4,769.4 L742.4,769.4 L742.4,748.0 L747.2,748.0 L747.2,769.4 L747.2,769.4 L747.2,770.2 L747.1,771.1 L746.9,771.9 L746.8,772.7 L746.5,773.5 L746.2,774.2 L745.9,775.0 L745.5,775.7 L745.1,776.4 L744.6,777.1 L744.1,777.7 L743.5,778.3 L742.9,778.9 L742.3,779.4 L741.6,779.9 L740.9,780.3 L740.2,780.7 L739.4,781.0 L738.6,781.3 L737.9,781.6 L737.1,781.8 L736.2,781.9 L735.4,782.0 L734.6,782.0 L733.8,782.0 L733.0,781.9 L732.1,781.8 L731.3,781.6 L730.6,781.3 L729.8,781.0 L729.0,780.7 L728.3,780.3 L727.6,779.9 L726.9,779.4 L726.3,778.9 L725.7,778.3 L725.1,777.7 L724.6,777.1 L724.1,776.4 L723.7,775.7 L723.3,775.0 L723.0,774.2 L722.7,773.5 L722.4,772.7 L722.3,771.9 L722.1,771.1 L722.0,770.2 L722.0,769.4Z M761.5,748.0 L781.2,748.0 L781.2,752.8 L766.2,752.8 L766.2,762.6 L779.1,762.6 L779.1,767.4 L766.2,767.4 L766.2,777.2 L781.2,777.2 L781.2,782.0 L761.5,782.0Z M822.3,755.9 L821.6,755.2 L820.8,754.6 L820.0,754.0 L819.1,753.5 L818.2,753.1 L817.3,752.8 L816.3,752.5 L815.4,752.3 L814.4,752.1 L813.4,752.1 L812.4,752.1 L811.5,752.2 L810.5,752.4 L809.5,752.6 L808.6,752.9 L807.7,753.3 L806.8,753.7 L806.0,754.3 L805.2,754.8 L804.4,755.5 L803.7,756.2 L803.1,756.9 L802.5,757.7 L802.0,758.5 L801.5,759.4 L801.1,760.3 L800.8,761.2 L800.5,762.2 L800.3,763.2 L800.2,764.2 L800.2,765.1 L800.3,766.1 L800.4,767.1 L800.6,768.1 L800.9,769.0 L801.2,769.9 L801.6,770.8 L802.1,771.7 L802.6,772.5 L803.2,773.3 L803.9,774.0 L804.6,774.7 L805.4,775.3 L806.2,775.9 L807.0,776.4 L807.9,776.8 L808.9,777.2 L809.8,777.5 L810.8,777.7 L811.7,777.8 L812.7,777.9 L813.7,777.9 L814.7,777.8 L815.7,777.7 L816.6,777.4 L817.6,777.1 L818.5,776.8 L819.4,776.3 L820.2,775.8 L821.0,775.3 L821.8,774.6 L822.5,773.9 L823.1,773.2 L823.7,772.4 L824.3,771.6 L824.7,770.7 L825.1,769.8 L825.5,768.9 L825.7,767.9 L825.9,767.0 L826.0,766.0 L826.1,765.0 L830.8,765.0 L830.8,766.3 L830.6,767.7 L830.4,769.0 L830.0,770.3 L829.5,771.6 L829.0,772.8 L828.4,774.0 L827.6,775.1 L826.8,776.2 L825.9,777.2 L824.9,778.2 L823.9,779.0 L822.8,779.8 L821.6,780.5 L820.4,781.1 L819.2,781.6 L817.9,782.0 L816.6,782.3 L815.3,782.6 L813.9,782.7 L812.6,782.7 L811.2,782.6 L809.9,782.4 L808.6,782.1 L807.3,781.7 L806.0,781.2 L804.8,780.6 L803.6,779.9 L802.5,779.1 L801.5,778.3 L800.5,777.4 L799.6,776.4 L798.8,775.3 L798.0,774.2 L797.4,773.0 L796.8,771.8 L796.3,770.5 L796.0,769.2 L795.7,767.9 L795.5,766.5 L795.5,765.2 L795.5,763.8 L795.6,762.5 L795.9,761.2 L796.2,759.9 L796.7,758.6 L797.2,757.4 L797.8,756.2 L798.5,755.0 L799.4,753.9 L800.2,752.9 L801.2,752.0 L802.2,751.1 L803.3,750.3 L804.5,749.6 L805.7,749.0 L806.9,748.5 L808.2,748.0 L809.5,747.7 L810.8,747.5 L812.2,747.3 L813.5,747.3 L814.9,747.4 L816.2,747.6 L817.5,747.9 L818.8,748.3 L820.1,748.7 L821.3,749.3 L822.5,750.0 L823.6,750.7 L824.7,751.6 L825.6,752.5Z M880.5,765.0 L880.4,766.5 L880.2,768.1 L879.9,769.6 L879.4,771.0 L878.8,772.5 L878.1,773.8 L877.3,775.1 L876.3,776.4 L875.3,777.5 L874.1,778.5 L872.9,779.5 L871.6,780.3 L870.3,781.0 L868.8,781.6 L867.4,782.1 L865.9,782.4 L864.3,782.6 L862.8,782.7 L861.2,782.6 L859.7,782.4 L858.2,782.1 L856.7,781.6 L855.3,781.0 L853.9,780.3 L852.6,779.5 L851.4,778.5 L850.3,777.5 L849.2,776.4 L848.3,775.1 L847.5,773.8 L846.8,772.5 L846.2,771.0 L845.7,769.6 L845.4,768.1 L845.2,766.5 L845.1,765.0 L845.2,763.5 L845.4,761.9 L845.7,760.4 L846.2,759.0 L846.8,757.5 L847.5,756.2 L848.3,754.9 L849.2,753.6 L850.3,752.5 L851.4,751.5 L852.6,750.5 L853.9,749.7 L855.3,749.0 L856.7,748.4 L858.2,747.9 L859.7,747.6 L861.2,747.4 L862.8,747.3 L864.3,747.4 L865.9,747.6 L867.4,747.9 L868.8,748.4 L870.3,749.0 L871.6,749.7 L872.9,750.5 L874.1,751.5 L875.3,752.5 L876.3,753.6 L877.3,754.9 L878.1,756.2 L878.8,757.5 L879.4,759.0 L879.9,760.4 L880.2,761.9 L880.4,763.5Z M875.7,763.9 L875.5,762.8 L875.3,761.7 L874.9,760.6 L874.5,759.5 L874.0,758.5 L873.4,757.6 L872.7,756.7 L871.9,755.9 L871.1,755.1 L870.2,754.4 L869.2,753.8 L868.2,753.3 L867.2,752.9 L866.1,752.5 L865.0,752.3 L863.9,752.1 L862.8,752.1 L861.7,752.1 L860.5,752.3 L859.4,752.5 L858.4,752.9 L857.3,753.3 L856.3,753.8 L855.4,754.4 L854.5,755.1 L853.6,755.9 L852.9,756.7 L852.2,757.6 L851.6,758.5 L851.1,759.5 L850.6,760.6 L850.3,761.7 L850.1,762.8 L849.9,763.9 L849.9,765.0 L849.9,766.1 L850.1,767.2 L850.3,768.3 L850.6,769.4 L851.1,770.5 L851.6,771.5 L852.2,772.4 L852.9,773.3 L853.6,774.1 L854.5,774.9 L855.4,775.6 L856.3,776.2 L857.3,776.7 L858.4,777.1 L859.4,777.5 L860.5,777.7 L861.7,777.9 L862.8,777.9 L863.9,777.9 L865.0,777.7 L866.1,777.5 L867.2,777.1 L868.2,776.7 L869.2,776.2 L870.2,775.6 L871.1,774.9 L871.9,774.1 L872.7,773.3 L873.4,772.4 L874.0,771.5 L874.5,770.5 L874.9,769.4 L875.3,768.3 L875.5,767.2 L875.7,766.1 L875.7,765.0Z M379.6,769.1 L396.6,769.1 L396.6,773.8 L379.6,773.8Z M520.4,769.1 L537.4,769.1 L537.4,773.8 L520.4,773.8Z M814.5,765.0 L830.8,765.0 L830.8,769.8 L814.5,769.8Z"/><path fill="var(--line-beige,#C8BBA8)" d="M235.0,763.4 L348.5,763.4 L348.5,766.6 L235.0,766.6Z M906.5,763.4 L1020.0,763.4 L1020.0,766.6 L906.5,766.6Z"/></svg>
+        <h1>La fe también se viste.</h1>
+        <p class="lead">Remeras, buzos y accesorios para llevar tu fe con vos todos los días. Armá tu pedido y te lo confirmamos por WhatsApp.</p>
+        <div class="actions">
+          <a class="btn btn-fire" href="#catalogo">Ver catálogo</a>
+          <a class="btn btn-line" href="#como-comprar">Cómo comprar</a>
+        </div>
+      </div>
+      <figure class="hero-img" style="margin:0">
+        <img src="img/caja-abierta-remera.jpg" width="800" height="800" alt="Remera negra LEÑA doblada dentro de la caja negra, con la frase El fuego de Dios también está en ti en la tapa">
+        <figcaption>Foto de referencia</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section class="block" id="catalogo">
+    <div class="wrap">
+      <div class="head">
+        <span class="label">Catálogo</span>
+        <h2>Elegí tu categoría</h2>
+      </div>
+      <div class="cats">
+        <a class="cat" href="#destacados">
+          <img src="img/remera-negra.jpg" width="800" height="800" alt="Remera negra con el logo LEÑA en el pecho" loading="lazy">
+          <span class="name">Remeras <em>Ver</em></span>
+        </a>
+        <a class="cat" href="#destacados">
+          <div class="ph" role="img" aria-label="Foto de buzos próximamente">
+            <div>
+              <svg viewBox="0 0 40 60" aria-hidden="true"><path fill="#E8662A" d="M20 0C24 12 38 22 38 40C38 52 30 60 20 60C10 60 2 52 2 42C2 32 8 26 12 20C12 28 16 32 20 32C18 22 16 10 20 0Z"/></svg>
+              <p style="margin-top:12px">Foto en camino</p>
+            </div>
+          </div>
+          <span class="name">Buzos <em>Ver</em></span>
+        </a>
+        <a class="cat" href="#destacados">
+          <img src="img/botella-termica.jpg" width="800" height="800" alt="Botella térmica negra con una cruz y el logo LEÑA" loading="lazy">
+          <span class="name">Accesorios <em>Ver</em></span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="block" id="destacados">
+    <div class="wrap">
+      <div class="head">
+        <span class="label">Destacados</span>
+        <h2>Para avivar el fuego</h2>
+      </div>
+      <div class="grid">
+        <article class="card">
+          <div class="media"><img src="img/remera-negra.jpg" width="800" height="800" alt="Remera Aviva el fuego negra" loading="lazy"><span class="tag">Ejemplo</span></div>
+          <div class="body">
+            <span class="cat-name">Remeras</span>
+            <h3>Remera Aviva el fuego</h3>
+            <span class="price">$ 00.000</span>
+            <div class="sizes" aria-label="Talles"><span>S</span><span>M</span><span>L</span><span>XL</span></div>
+            <button class="btn btn-line add" type="button" data-name="Remera Aviva el fuego">Agregar al pedido</button>
+          </div>
+        </article>
+        <article class="card">
+          <div class="media">
+            <div class="ph" role="img" aria-label="Foto del buzo próximamente"><div><svg viewBox="0 0 40 60" aria-hidden="true"><path fill="#E8662A" d="M20 0C24 12 38 22 38 40C38 52 30 60 20 60C10 60 2 52 2 42C2 32 8 26 12 20C12 28 16 32 20 32C18 22 16 10 20 0Z"/></svg><p style="margin-top:12px">Foto en camino</p></div></div>
+            <span class="tag">Ejemplo</span>
+          </div>
+          <div class="body">
+            <span class="cat-name">Buzos</span>
+            <h3>Buzo LEÑA</h3>
+            <span class="price">$ 00.000</span>
+            <div class="sizes" aria-label="Talles"><span>S</span><span>M</span><span>L</span><span>XL</span></div>
+            <button class="btn btn-line add" type="button" data-name="Buzo LEÑA">Agregar al pedido</button>
+          </div>
+        </article>
+        <article class="card">
+          <div class="media"><img src="img/botella-termica.jpg" width="800" height="800" alt="Botella térmica negra LEÑA" loading="lazy"><span class="tag">Ejemplo</span></div>
+          <div class="body">
+            <span class="cat-name">Accesorios</span>
+            <h3>Botella térmica</h3>
+            <span class="price">$ 00.000</span>
+            <div class="sizes" aria-label="Medida"><span>750 ml</span></div>
+            <button class="btn btn-line add" type="button" data-name="Botella térmica">Agregar al pedido</button>
+          </div>
+        </article>
+        <article class="card">
+          <div class="media"><img src="img/caja-cerrada.jpg" width="800" height="800" alt="Caja negra de regalo LEÑA" loading="lazy"><span class="tag">Ejemplo</span></div>
+          <div class="body">
+            <span class="cat-name">Regalos</span>
+            <h3>Kit regalo LEÑA</h3>
+            <span class="price">$ 00.000</span>
+            <div class="sizes" aria-label="Incluye"><span>Remera</span><span>Stickers</span><span>Tarjeta</span></div>
+            <button class="btn btn-line add" type="button" data-name="Kit regalo LEÑA">Agregar al pedido</button>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="block" id="packaging">
+    <div class="wrap">
+      <div class="pack">
+        <div class="pack-copy">
+          <span class="label">Tu pedido</span>
+          <h2>Llega como un regalo</h2>
+          <ul>
+            <li>Caja negra con el logo de LEÑA</li>
+            <li>Papel de seda con cruces y llamas</li>
+            <li>Sticker de cierre y tarjeta con un mensaje</li>
+          </ul>
+        </div>
+        <img src="img/caja-cerrada.jpg" width="800" height="800" alt="Caja negra cerrada con el logo LEÑA y una cruz al costado" loading="lazy">
+        <img src="img/envoltorio.jpg" width="800" height="800" alt="Paquete envuelto en papel de seda negro con cruces y llamas, cerrado con un sticker LEÑA" loading="lazy">
+      </div>
+    </div>
+  </section>
+
+  <div class="wrap" aria-label="Ora, lee, vive, comparte">
+    <div class="olvc">
+      <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" aria-hidden="true"><path d="M12 2v20M7 7.5h10"/></svg><span>Ora</span></div>
+      <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" aria-hidden="true"><path d="M12 6.5C10 5 7 4.5 3 4.8v13.4c4-.3 7 .2 9 1.8 2-1.6 5-2.1 9-1.8V4.8c-4-.3-7 .2-9 1.7Z"/><path d="M12 6.5V20"/></svg><span>Lee</span></div>
+      <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" aria-hidden="true"><path d="M12 2.5c1 3.5 6 6 6 11.5a6 6 0 0 1-12 0c0-3 1.8-4.6 3-6.2 0 2.5 1.2 3.8 3 3.8-.6-3-.8-6 0-9.1Z"/></svg><span>Vive</span></div>
+      <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" aria-hidden="true"><circle cx="12" cy="8" r="3"/><circle cx="5.5" cy="10" r="2.2"/><circle cx="18.5" cy="10" r="2.2"/><path d="M6.5 20v-2.5a5.5 5.5 0 0 1 11 0V20M2 20v-1.8A3.6 3.6 0 0 1 5.2 14.6M22 20v-1.8a3.6 3.6 0 0 0-3.2-3.6"/></svg><span>Comparte</span></div>
+    </div>
+  </div>
+
+  <section class="block" id="como-comprar" style="border-top:0">
+    <div class="wrap">
+      <div class="head">
+        <span class="label">Cómo comprar</span>
+        <h2>Simple, por WhatsApp</h2>
+        <p>Sin registrarte y sin pagar online. Elegís, nos mandás el pedido y lo coordinamos con vos.</p>
+      </div>
+      <ol class="steps">
+        <li><h3>Elegí tus productos</h3><p>Mirá el catálogo, elegí talle y color, y agregalos a tu pedido.</p></li>
+        <li><h3>Enviá tu pedido</h3><p>Tocá «Enviar por WhatsApp» y el pedido nos llega armado, con todo el detalle.</p></li>
+        <li><h3>Pagá y recibilo</h3><p>Pagás por transferencia o Mercado Pago, y coordinamos el envío o el retiro.</p></li>
+      </ol>
+      <div class="pay"><span>Transferencia</span><span>Mercado Pago</span><span>Envíos y retiro a coordinar</span></div>
+    </div>
+  </section>
+
+  <section class="verse" aria-label="Versículo">
+    <div class="wrap">
+      <svg class="cross" viewBox="0 0 14 24" fill="none" stroke="currentColor" stroke-width="1.2" aria-hidden="true"><path d="M7 0v24M1 7h12"/></svg>
+      <blockquote>Porque no nos ha dado Dios un espíritu de temor, sino de poder, de amor y de dominio propio.</blockquote>
+      <cite class="label">2 Timoteo 1:7</cite>
+    </div>
+    <svg class="mountains" viewBox="0 0 1200 210" preserveAspectRatio="none" aria-hidden="true">
+      <path fill="currentColor" d="M0 210V150L90 120L170 140L260 95L330 120L420 70L500 105L560 60L600 22L640 60L700 95L780 70L860 115L950 90L1030 125L1120 105L1200 130V210Z"/>
+    </svg>
+  </section>
+</main>
+
+<footer id="contacto">
+  <div class="wrap">
+    <div><svg class="logo" viewBox="228 468 800 318" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="LEÑA, Aviva el fuego"><path fill="currentColor" d="M235.0,523.0 L258.0,523.0 L258.0,673.0 L363.0,673.0 L363.0,693.0 L235.0,693.0Z M425.0,523.0 L560.0,523.0 L560.0,541.0 L445.0,541.0 L445.0,597.0 L548.0,597.0 L548.0,614.0 L445.0,614.0 L445.0,675.0 L560.0,675.0 L560.0,693.0 L425.0,693.0Z M623.0,693.0 L623.0,523.0 L651.0,523.0 L770.0,684.0 L770.0,523.0 L789.0,523.0 L789.0,693.0 L749.0,693.0 L642.0,549.0 L642.0,693.0Z M841.0,693.0 L928.0,523.0 L938.0,523.0 L1020.0,693.0 L996.0,693.0 L933.0,569.0 L865.0,693.0Z"/><path fill="currentColor" d="M659.0,500.0 L660.8,496.1 L662.9,492.7 L665.3,489.7 L667.9,487.1 L670.7,484.9 L673.7,483.2 L676.8,481.8 L680.0,480.8 L683.3,480.1 L686.7,479.7 L690.1,479.7 L693.6,480.0 L697.0,480.6 L700.4,481.5 L703.8,482.6 L707.0,484.0 L709.8,485.3 L712.6,486.4 L715.4,487.4 L718.2,488.3 L720.9,489.0 L723.7,489.6 L726.4,489.9 L729.0,490.0 L731.6,489.9 L734.1,489.5 L736.6,488.9 L739.1,487.9 L741.4,486.7 L743.7,485.1 L745.9,483.3 L748.0,481.0 L755.0,483.0 L753.0,486.5 L750.8,489.7 L748.4,492.4 L745.8,494.8 L743.1,496.7 L740.2,498.3 L737.2,499.6 L734.1,500.5 L730.9,501.1 L727.7,501.4 L724.4,501.3 L721.1,501.0 L717.8,500.4 L714.5,499.5 L711.2,498.4 L708.0,497.0 L704.7,495.6 L701.4,494.3 L698.2,493.3 L695.1,492.5 L692.0,491.8 L689.1,491.4 L686.2,491.3 L683.4,491.4 L680.7,491.7 L678.0,492.4 L675.5,493.4 L673.0,494.6 L670.6,496.2 L668.3,498.1 L666.1,500.4 L664.0,503.0Z"/><path fill="#E8662A" d="M723.0,545.0 L721.4,546.5 L719.9,548.1 L718.5,549.8 L717.2,551.5 L716.1,553.3 L715.1,555.1 L714.3,556.9 L713.6,558.8 L713.1,560.6 L712.7,562.5 L712.5,564.5 L712.5,566.4 L712.6,568.3 L712.9,570.2 L713.3,572.1 L714.0,574.0 L714.8,576.0 L715.6,577.9 L716.5,579.7 L717.4,581.4 L718.3,583.1 L719.3,584.7 L720.3,586.2 L721.4,587.8 L722.5,589.2 L723.6,590.7 L724.8,592.2 L726.0,593.7 L727.2,595.2 L728.4,596.8 L729.7,598.3 L731.0,600.0 L732.5,601.9 L734.0,603.8 L735.5,605.8 L737.0,607.8 L738.4,609.9 L739.8,612.1 L741.2,614.5 L742.6,616.9 L744.0,619.4 L745.3,622.1 L746.5,625.0 L747.7,628.0 L748.9,631.2 L750.0,634.6 L751.0,638.2 L752.0,642.0 L753.2,639.2 L754.3,636.4 L755.1,633.6 L755.8,630.8 L756.3,628.0 L756.7,625.3 L756.8,622.6 L756.9,619.9 L756.8,617.2 L756.5,614.6 L756.1,612.0 L755.5,609.5 L754.8,607.0 L754.0,604.6 L753.1,602.3 L752.0,600.0 L750.8,598.0 L749.6,596.0 L748.3,594.0 L746.9,592.1 L745.5,590.2 L744.0,588.4 L742.6,586.5 L741.1,584.8 L739.7,583.0 L738.3,581.2 L736.9,579.5 L735.5,577.8 L734.3,576.1 L733.1,574.4 L732.0,572.7 L731.0,571.0 L730.1,569.3 L729.2,567.7 L728.3,566.1 L727.5,564.5 L726.7,563.0 L726.0,561.5 L725.3,559.9 L724.8,558.4 L724.2,556.8 L723.8,555.2 L723.4,553.6 L723.1,552.0 L722.9,550.3 L722.9,548.6 L722.9,546.8 L723.0,545.0Z"/><path fill="#F6C453" d="M731.0,575.0 L730.5,576.7 L730.2,578.3 L730.0,580.0 L730.0,581.6 L730.1,583.2 L730.3,584.8 L730.6,586.3 L731.0,587.9 L731.5,589.4 L732.1,590.9 L732.8,592.5 L733.5,594.0 L734.3,595.5 L735.2,597.0 L736.1,598.5 L737.0,600.0 L737.9,601.5 L738.9,603.1 L739.8,604.6 L740.7,606.3 L741.6,607.9 L742.5,609.7 L743.4,611.5 L744.2,613.4 L745.1,615.3 L745.9,617.4 L746.7,619.5 L747.4,621.8 L748.1,624.2 L748.8,626.6 L749.4,629.3 L750.0,632.0 L750.5,629.8 L750.9,627.6 L751.2,625.5 L751.4,623.4 L751.4,621.4 L751.4,619.4 L751.3,617.5 L751.1,615.6 L750.9,613.8 L750.5,612.1 L750.1,610.4 L749.6,608.8 L749.0,607.2 L748.4,605.8 L747.7,604.3 L747.0,603.0 L746.0,601.3 L745.0,599.7 L744.0,598.2 L743.0,596.7 L741.9,595.1 L740.8,593.6 L739.7,592.1 L738.6,590.5 L737.6,588.9 L736.5,587.2 L735.5,585.4 L734.5,583.6 L733.5,581.6 L732.6,579.6 L731.8,577.4 L731.0,575.0Z"/><path fill="currentColor" d="M374.5,782.0 L387.1,748.0 L389.2,748.0 L401.7,782.0 L396.7,782.0 L388.1,759.0 L379.6,782.0Z M416.0,748.0 L421.1,748.0 L428.9,770.4 L436.8,748.0 L441.9,748.0 L430.0,782.0 L427.9,782.0Z M456.1,748.0 L460.9,748.0 L460.9,782.0 L456.1,782.0Z M475.2,748.0 L480.3,748.0 L488.1,770.4 L495.9,748.0 L501.0,748.0 L489.1,782.0 L487.1,782.0Z M515.3,782.0 L527.9,748.0 L529.9,748.0 L542.5,782.0 L537.4,782.0 L528.9,759.0 L520.4,782.0Z M589.1,748.0 L608.8,748.0 L608.8,752.8 L593.8,752.8 L593.8,762.6 L606.8,762.6 L606.8,767.4 L593.8,767.4 L593.8,777.2 L608.8,777.2 L608.8,782.0 L589.1,782.0Z M623.1,748.0 L627.8,748.0 L627.8,777.2 L642.1,777.2 L642.1,782.0 L623.1,782.0Z M688.7,748.0 L707.7,748.0 L707.7,752.8 L693.5,752.8 L693.5,764.0 L705.7,764.0 L705.7,768.7 L693.5,768.7 L693.5,782.0 L688.7,782.0Z M722.0,748.0 L726.8,748.0 L726.8,769.4 L726.8,769.4 L726.8,769.9 L726.8,770.4 L726.9,770.9 L727.0,771.4 L727.2,771.9 L727.4,772.4 L727.6,772.9 L727.8,773.3 L728.1,773.8 L728.4,774.2 L728.7,774.6 L729.1,774.9 L729.4,775.3 L729.8,775.6 L730.3,775.9 L730.7,776.2 L731.1,776.4 L731.6,776.6 L732.1,776.8 L732.6,777.0 L733.1,777.1 L733.6,777.2 L734.1,777.2 L734.6,777.2 L735.1,777.2 L735.6,777.2 L736.1,777.1 L736.6,777.0 L737.1,776.8 L737.6,776.6 L738.1,776.4 L738.5,776.2 L738.9,775.9 L739.4,775.6 L739.8,775.3 L740.1,774.9 L740.5,774.6 L740.8,774.2 L741.1,773.8 L741.4,773.3 L741.6,772.9 L741.8,772.4 L742.0,771.9 L742.2,771.4 L742.3,770.9 L742.4,770.4 L742.4,769.9 L742.4,769.4 L742.4,769.4 L742.4,748.0 L747.2,748.0 L747.2,769.4 L747.2,769.4 L747.2,770.2 L747.1,771.1 L746.9,771.9 L746.8,772.7 L746.5,773.5 L746.2,774.2 L745.9,775.0 L745.5,775.7 L745.1,776.4 L744.6,777.1 L744.1,777.7 L743.5,778.3 L742.9,778.9 L742.3,779.4 L741.6,779.9 L740.9,780.3 L740.2,780.7 L739.4,781.0 L738.6,781.3 L737.9,781.6 L737.1,781.8 L736.2,781.9 L735.4,782.0 L734.6,782.0 L733.8,782.0 L733.0,781.9 L732.1,781.8 L731.3,781.6 L730.6,781.3 L729.8,781.0 L729.0,780.7 L728.3,780.3 L727.6,779.9 L726.9,779.4 L726.3,778.9 L725.7,778.3 L725.1,777.7 L724.6,777.1 L724.1,776.4 L723.7,775.7 L723.3,775.0 L723.0,774.2 L722.7,773.5 L722.4,772.7 L722.3,771.9 L722.1,771.1 L722.0,770.2 L722.0,769.4Z M761.5,748.0 L781.2,748.0 L781.2,752.8 L766.2,752.8 L766.2,762.6 L779.1,762.6 L779.1,767.4 L766.2,767.4 L766.2,777.2 L781.2,777.2 L781.2,782.0 L761.5,782.0Z M822.3,755.9 L821.6,755.2 L820.8,754.6 L820.0,754.0 L819.1,753.5 L818.2,753.1 L817.3,752.8 L816.3,752.5 L815.4,752.3 L814.4,752.1 L813.4,752.1 L812.4,752.1 L811.5,752.2 L810.5,752.4 L809.5,752.6 L808.6,752.9 L807.7,753.3 L806.8,753.7 L806.0,754.3 L805.2,754.8 L804.4,755.5 L803.7,756.2 L803.1,756.9 L802.5,757.7 L802.0,758.5 L801.5,759.4 L801.1,760.3 L800.8,761.2 L800.5,762.2 L800.3,763.2 L800.2,764.2 L800.2,765.1 L800.3,766.1 L800.4,767.1 L800.6,768.1 L800.9,769.0 L801.2,769.9 L801.6,770.8 L802.1,771.7 L802.6,772.5 L803.2,773.3 L803.9,774.0 L804.6,774.7 L805.4,775.3 L806.2,775.9 L807.0,776.4 L807.9,776.8 L808.9,777.2 L809.8,777.5 L810.8,777.7 L811.7,777.8 L812.7,777.9 L813.7,777.9 L814.7,777.8 L815.7,777.7 L816.6,777.4 L817.6,777.1 L818.5,776.8 L819.4,776.3 L820.2,775.8 L821.0,775.3 L821.8,774.6 L822.5,773.9 L823.1,773.2 L823.7,772.4 L824.3,771.6 L824.7,770.7 L825.1,769.8 L825.5,768.9 L825.7,767.9 L825.9,767.0 L826.0,766.0 L826.1,765.0 L830.8,765.0 L830.8,766.3 L830.6,767.7 L830.4,769.0 L830.0,770.3 L829.5,771.6 L829.0,772.8 L828.4,774.0 L827.6,775.1 L826.8,776.2 L825.9,777.2 L824.9,778.2 L823.9,779.0 L822.8,779.8 L821.6,780.5 L820.4,781.1 L819.2,781.6 L817.9,782.0 L816.6,782.3 L815.3,782.6 L813.9,782.7 L812.6,782.7 L811.2,782.6 L809.9,782.4 L808.6,782.1 L807.3,781.7 L806.0,781.2 L804.8,780.6 L803.6,779.9 L802.5,779.1 L801.5,778.3 L800.5,777.4 L799.6,776.4 L798.8,775.3 L798.0,774.2 L797.4,773.0 L796.8,771.8 L796.3,770.5 L796.0,769.2 L795.7,767.9 L795.5,766.5 L795.5,765.2 L795.5,763.8 L795.6,762.5 L795.9,761.2 L796.2,759.9 L796.7,758.6 L797.2,757.4 L797.8,756.2 L798.5,755.0 L799.4,753.9 L800.2,752.9 L801.2,752.0 L802.2,751.1 L803.3,750.3 L804.5,749.6 L805.7,749.0 L806.9,748.5 L808.2,748.0 L809.5,747.7 L810.8,747.5 L812.2,747.3 L813.5,747.3 L814.9,747.4 L816.2,747.6 L817.5,747.9 L818.8,748.3 L820.1,748.7 L821.3,749.3 L822.5,750.0 L823.6,750.7 L824.7,751.6 L825.6,752.5Z M880.5,765.0 L880.4,766.5 L880.2,768.1 L879.9,769.6 L879.4,771.0 L878.8,772.5 L878.1,773.8 L877.3,775.1 L876.3,776.4 L875.3,777.5 L874.1,778.5 L872.9,779.5 L871.6,780.3 L870.3,781.0 L868.8,781.6 L867.4,782.1 L865.9,782.4 L864.3,782.6 L862.8,782.7 L861.2,782.6 L859.7,782.4 L858.2,782.1 L856.7,781.6 L855.3,781.0 L853.9,780.3 L852.6,779.5 L851.4,778.5 L850.3,777.5 L849.2,776.4 L848.3,775.1 L847.5,773.8 L846.8,772.5 L846.2,771.0 L845.7,769.6 L845.4,768.1 L845.2,766.5 L845.1,765.0 L845.2,763.5 L845.4,761.9 L845.7,760.4 L846.2,759.0 L846.8,757.5 L847.5,756.2 L848.3,754.9 L849.2,753.6 L850.3,752.5 L851.4,751.5 L852.6,750.5 L853.9,749.7 L855.3,749.0 L856.7,748.4 L858.2,747.9 L859.7,747.6 L861.2,747.4 L862.8,747.3 L864.3,747.4 L865.9,747.6 L867.4,747.9 L868.8,748.4 L870.3,749.0 L871.6,749.7 L872.9,750.5 L874.1,751.5 L875.3,752.5 L876.3,753.6 L877.3,754.9 L878.1,756.2 L878.8,757.5 L879.4,759.0 L879.9,760.4 L880.2,761.9 L880.4,763.5Z M875.7,763.9 L875.5,762.8 L875.3,761.7 L874.9,760.6 L874.5,759.5 L874.0,758.5 L873.4,757.6 L872.7,756.7 L871.9,755.9 L871.1,755.1 L870.2,754.4 L869.2,753.8 L868.2,753.3 L867.2,752.9 L866.1,752.5 L865.0,752.3 L863.9,752.1 L862.8,752.1 L861.7,752.1 L860.5,752.3 L859.4,752.5 L858.4,752.9 L857.3,753.3 L856.3,753.8 L855.4,754.4 L854.5,755.1 L853.6,755.9 L852.9,756.7 L852.2,757.6 L851.6,758.5 L851.1,759.5 L850.6,760.6 L850.3,761.7 L850.1,762.8 L849.9,763.9 L849.9,765.0 L849.9,766.1 L850.1,767.2 L850.3,768.3 L850.6,769.4 L851.1,770.5 L851.6,771.5 L852.2,772.4 L852.9,773.3 L853.6,774.1 L854.5,774.9 L855.4,775.6 L856.3,776.2 L857.3,776.7 L858.4,777.1 L859.4,777.5 L860.5,777.7 L861.7,777.9 L862.8,777.9 L863.9,777.9 L865.0,777.7 L866.1,777.5 L867.2,777.1 L868.2,776.7 L869.2,776.2 L870.2,775.6 L871.1,774.9 L871.9,774.1 L872.7,773.3 L873.4,772.4 L874.0,771.5 L874.5,770.5 L874.9,769.4 L875.3,768.3 L875.5,767.2 L875.7,766.1 L875.7,765.0Z M379.6,769.1 L396.6,769.1 L396.6,773.8 L379.6,773.8Z M520.4,769.1 L537.4,769.1 L537.4,773.8 L520.4,773.8Z M814.5,765.0 L830.8,765.0 L830.8,769.8 L814.5,769.8Z"/><path fill="var(--line-beige,#C8BBA8)" d="M235.0,763.4 L348.5,763.4 L348.5,766.6 L235.0,766.6Z M906.5,763.4 L1020.0,763.4 L1020.0,766.6 L906.5,766.6Z"/></svg></div>
+    <div>
+      <h3>Comprar</h3>
+      <ul>
+        <li><a href="#catalogo">Catálogo</a></li>
+        <li><a href="#como-comprar">Cómo comprar</a></li>
+        <li><a href="#packaging">Envíos y cambios</a></li>
+      </ul>
+    </div>
+    <div>
+      <h3>Contacto</h3>
+      <ul>
+        <li>WhatsApp: a confirmar</li>
+        <li>Instagram: a confirmar</li>
+      </ul>
+    </div>
+    <div class="fine"><span>© 2026 LEÑA · Aviva el fuego</span><span>Web por Paz Studio</span></div>
+  </div>
+</footer>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script>
+(function(){
+  var count=0, countEl=document.getElementById('cart-count'), toast=document.getElementById('toast'), t;
+  function show(msg){toast.textContent=msg;toast.classList.add('show');clearTimeout(t);t=setTimeout(function(){toast.classList.remove('show')},2600);}
+  document.querySelectorAll('.add').forEach(function(b){
+    b.addEventListener('click',function(){count++;countEl.textContent=count;show(b.dataset.name+' agregado a tu pedido');});
+  });
+  document.getElementById('cart-btn').addEventListener('click',function(){
+    show(count? 'Tenés '+count+(count===1?' producto':' productos')+' en tu pedido. El envío por WhatsApp se activa en la versión final.' : 'Tu pedido está vacío. Agregá productos desde el catálogo.');
+  });
+})();
+</script>
+</body>
+</html>
