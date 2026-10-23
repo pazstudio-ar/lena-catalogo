@@ -21,6 +21,7 @@
   --ash:#9A948D;        /* texto secundario */
   --beige:#C8BBA8;      /* líneas del logo, detalles */
   --fire:#E8662A;       /* llama, acción principal */
+  --smoke:#1F1C1A;      /* botón flotante */
   --ember:#F6C453;      /* centro de la llama */
   --f-display:"Montserrat","Helvetica Neue",Arial,sans-serif;
   --f-body:"Montserrat","Helvetica Neue",Arial,sans-serif;
@@ -60,7 +61,28 @@ nav a:hover{color:var(--bone)}
 .cart:hover{border-color:var(--beige)}
 .cart svg{width:16px;height:16px}
 .count{min-width:20px;height:20px;border-radius:999px;background:var(--fire);color:var(--ink);display:inline-grid;place-items:center;font-size:.7rem;font-weight:600;letter-spacing:0;font-variant-numeric:tabular-nums}
-@media (max-width:760px){nav{display:none}.cart span.txt{display:none}}
+.tools{display:flex;align-items:center;gap:10px}
+.menu-btn{display:none;width:42px;height:42px;align-items:center;justify-content:center;background:none;border:1px solid var(--line);border-radius:999px;color:var(--bone);cursor:pointer}
+.menu-btn svg{width:18px;height:18px}
+.menu-btn .x{display:none}
+.menu-btn[aria-expanded="true"] .x{display:block}
+.menu-btn[aria-expanded="true"] .lines{display:none}
+@media (max-width:760px){
+  .menu-btn{display:inline-flex}
+  .cart span.txt{display:none}
+  nav{position:absolute;top:100%;left:0;right:0;background:var(--ink);border-bottom:1px solid var(--line);display:none}
+  nav.open{display:block}
+  nav ul{flex-direction:column;gap:0;padding:4px max(16px,env(safe-area-inset-right,0px)) 12px max(16px,env(safe-area-inset-left,0px))}
+  nav li+li{border-top:1px solid var(--line)}
+  nav a{display:block;padding:16px 0;font-size:.8rem;color:var(--bone)}
+}
+/* Botón flotante de WhatsApp */
+.wa-float{position:fixed;z-index:25;right:calc(16px + env(safe-area-inset-right,0px));bottom:calc(16px + env(safe-area-inset-bottom,0px));display:inline-flex;align-items:center;gap:10px;padding:12px 18px 12px 14px;border-radius:999px;background:var(--smoke);border:1px solid rgba(232,102,42,.45);color:var(--bone);font:500 .7rem/1 var(--f-display);letter-spacing:.2em;text-transform:uppercase;text-decoration:none;cursor:pointer;box-shadow:0 10px 28px rgba(0,0,0,.55);transition:border-color .2s,background .2s}
+.wa-float:hover{border-color:var(--fire);background:#262220}
+.wa-float .ic{position:relative;width:22px;height:22px;color:var(--beige)}
+.wa-float .ic svg{width:22px;height:22px}
+.wa-float .dot{position:absolute;top:-2px;right:-3px;width:8px;height:8px;border-radius:50%;background:var(--fire);box-shadow:0 0 0 2px var(--smoke)}
+@media (max-width:480px){.wa-float .long{display:none}}
 
 /* Portada */
 .hero .wrap{display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(28px,5vw,72px);align-items:center;padding-block:clamp(40px,7vw,96px)}
@@ -154,7 +176,7 @@ footer ul a:hover{color:var(--beige)}
 @media (max-width:760px){footer .wrap{grid-template-columns:1fr 1fr}footer .wrap>div:first-child{grid-column:1/-1}}
 
 /* Aviso al agregar */
-.toast{position:fixed;left:50%;bottom:calc(20px + env(safe-area-inset-bottom,0px));transform:translate(-50%,20px);opacity:0;pointer-events:none;background:var(--bone);color:var(--ink);padding:12px 18px;font-size:.82rem;font-weight:500;letter-spacing:.04em;transition:opacity .25s,transform .25s;z-index:30;max-width:calc(100% - 32px);text-align:center}
+.toast{position:fixed;left:50%;bottom:calc(84px + env(safe-area-inset-bottom,0px));transform:translate(-50%,20px);opacity:0;pointer-events:none;background:var(--bone);color:var(--ink);padding:12px 18px;font-size:.82rem;font-weight:500;letter-spacing:.04em;transition:opacity .25s,transform .25s;z-index:30;max-width:calc(100% - 32px);text-align:center}
 .toast.show{opacity:1;transform:translate(-50%,0)}
 </style>
 </head>
@@ -165,7 +187,7 @@ footer ul a:hover{color:var(--beige)}
 <header>
   <div class="wrap bar">
     <a href="#inicio" aria-label="LEÑA, ir al inicio"><svg class="logo-compact" viewBox="228 468 800 232" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="LEÑA"><path fill="currentColor" d="M235.0,523.0 L258.0,523.0 L258.0,673.0 L363.0,673.0 L363.0,693.0 L235.0,693.0Z M425.0,523.0 L560.0,523.0 L560.0,541.0 L445.0,541.0 L445.0,597.0 L548.0,597.0 L548.0,614.0 L445.0,614.0 L445.0,675.0 L560.0,675.0 L560.0,693.0 L425.0,693.0Z M623.0,693.0 L623.0,523.0 L651.0,523.0 L770.0,684.0 L770.0,523.0 L789.0,523.0 L789.0,693.0 L749.0,693.0 L642.0,549.0 L642.0,693.0Z M841.0,693.0 L928.0,523.0 L938.0,523.0 L1020.0,693.0 L996.0,693.0 L933.0,569.0 L865.0,693.0Z"/><path fill="currentColor" d="M659.0,500.0 L660.8,496.1 L662.9,492.7 L665.3,489.7 L667.9,487.1 L670.7,484.9 L673.7,483.2 L676.8,481.8 L680.0,480.8 L683.3,480.1 L686.7,479.7 L690.1,479.7 L693.6,480.0 L697.0,480.6 L700.4,481.5 L703.8,482.6 L707.0,484.0 L709.8,485.3 L712.6,486.4 L715.4,487.4 L718.2,488.3 L720.9,489.0 L723.7,489.6 L726.4,489.9 L729.0,490.0 L731.6,489.9 L734.1,489.5 L736.6,488.9 L739.1,487.9 L741.4,486.7 L743.7,485.1 L745.9,483.3 L748.0,481.0 L755.0,483.0 L753.0,486.5 L750.8,489.7 L748.4,492.4 L745.8,494.8 L743.1,496.7 L740.2,498.3 L737.2,499.6 L734.1,500.5 L730.9,501.1 L727.7,501.4 L724.4,501.3 L721.1,501.0 L717.8,500.4 L714.5,499.5 L711.2,498.4 L708.0,497.0 L704.7,495.6 L701.4,494.3 L698.2,493.3 L695.1,492.5 L692.0,491.8 L689.1,491.4 L686.2,491.3 L683.4,491.4 L680.7,491.7 L678.0,492.4 L675.5,493.4 L673.0,494.6 L670.6,496.2 L668.3,498.1 L666.1,500.4 L664.0,503.0Z"/><path fill="#E8662A" d="M723.0,545.0 L721.4,546.5 L719.9,548.1 L718.5,549.8 L717.2,551.5 L716.1,553.3 L715.1,555.1 L714.3,556.9 L713.6,558.8 L713.1,560.6 L712.7,562.5 L712.5,564.5 L712.5,566.4 L712.6,568.3 L712.9,570.2 L713.3,572.1 L714.0,574.0 L714.8,576.0 L715.6,577.9 L716.5,579.7 L717.4,581.4 L718.3,583.1 L719.3,584.7 L720.3,586.2 L721.4,587.8 L722.5,589.2 L723.6,590.7 L724.8,592.2 L726.0,593.7 L727.2,595.2 L728.4,596.8 L729.7,598.3 L731.0,600.0 L732.5,601.9 L734.0,603.8 L735.5,605.8 L737.0,607.8 L738.4,609.9 L739.8,612.1 L741.2,614.5 L742.6,616.9 L744.0,619.4 L745.3,622.1 L746.5,625.0 L747.7,628.0 L748.9,631.2 L750.0,634.6 L751.0,638.2 L752.0,642.0 L753.2,639.2 L754.3,636.4 L755.1,633.6 L755.8,630.8 L756.3,628.0 L756.7,625.3 L756.8,622.6 L756.9,619.9 L756.8,617.2 L756.5,614.6 L756.1,612.0 L755.5,609.5 L754.8,607.0 L754.0,604.6 L753.1,602.3 L752.0,600.0 L750.8,598.0 L749.6,596.0 L748.3,594.0 L746.9,592.1 L745.5,590.2 L744.0,588.4 L742.6,586.5 L741.1,584.8 L739.7,583.0 L738.3,581.2 L736.9,579.5 L735.5,577.8 L734.3,576.1 L733.1,574.4 L732.0,572.7 L731.0,571.0 L730.1,569.3 L729.2,567.7 L728.3,566.1 L727.5,564.5 L726.7,563.0 L726.0,561.5 L725.3,559.9 L724.8,558.4 L724.2,556.8 L723.8,555.2 L723.4,553.6 L723.1,552.0 L722.9,550.3 L722.9,548.6 L722.9,546.8 L723.0,545.0Z"/><path fill="#F6C453" d="M731.0,575.0 L730.5,576.7 L730.2,578.3 L730.0,580.0 L730.0,581.6 L730.1,583.2 L730.3,584.8 L730.6,586.3 L731.0,587.9 L731.5,589.4 L732.1,590.9 L732.8,592.5 L733.5,594.0 L734.3,595.5 L735.2,597.0 L736.1,598.5 L737.0,600.0 L737.9,601.5 L738.9,603.1 L739.8,604.6 L740.7,606.3 L741.6,607.9 L742.5,609.7 L743.4,611.5 L744.2,613.4 L745.1,615.3 L745.9,617.4 L746.7,619.5 L747.4,621.8 L748.1,624.2 L748.8,626.6 L749.4,629.3 L750.0,632.0 L750.5,629.8 L750.9,627.6 L751.2,625.5 L751.4,623.4 L751.4,621.4 L751.4,619.4 L751.3,617.5 L751.1,615.6 L750.9,613.8 L750.5,612.1 L750.1,610.4 L749.6,608.8 L749.0,607.2 L748.4,605.8 L747.7,604.3 L747.0,603.0 L746.0,601.3 L745.0,599.7 L744.0,598.2 L743.0,596.7 L741.9,595.1 L740.8,593.6 L739.7,592.1 L738.6,590.5 L737.6,588.9 L736.5,587.2 L735.5,585.4 L734.5,583.6 L733.5,581.6 L732.6,579.6 L731.8,577.4 L731.0,575.0Z"/></svg></a>
-    <nav aria-label="Secciones">
+    <nav id="menu" aria-label="Secciones">
       <ul>
         <li><a href="#catalogo">Catálogo</a></li>
         <li><a href="#packaging">Tu pedido</a></li>
@@ -173,11 +195,17 @@ footer ul a:hover{color:var(--beige)}
         <li><a href="#contacto">Contacto</a></li>
       </ul>
     </nav>
+    <div class="tools">
     <button class="cart" id="cart-btn" type="button" aria-label="Ver pedido">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><path d="M5 8h14l-1.2 12H6.2L5 8Z"/><path d="M9 8V6a3 3 0 0 1 6 0v2"/></svg>
       <span class="txt">Pedido</span>
       <span class="count" id="cart-count">0</span>
     </button>
+    <button class="menu-btn" id="menu-btn" type="button" aria-label="Abrir menú" aria-expanded="false" aria-controls="menu">
+      <svg class="lines" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><path d="M3 7h18M3 12h18M3 17h18"/></svg>
+      <svg class="x" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><path d="M5 5l14 14M19 5L5 19"/></svg>
+    </button>
+    </div>
   </div>
 </header>
 
@@ -359,17 +387,35 @@ footer ul a:hover{color:var(--beige)}
   </div>
 </footer>
 
+<a class="wa-float" id="wa-btn" href="#contacto" aria-label="Pedir por WhatsApp">
+  <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><path d="M4 18.5V6.8A2.8 2.8 0 0 1 6.8 4h10.4A2.8 2.8 0 0 1 20 6.8v7.4a2.8 2.8 0 0 1-2.8 2.8H8.5L4 20.5Z"/><path d="M8.5 9.5h7M8.5 12.5h4.5"/></svg><span class="dot"></span></span>
+  <span>Pedir <span class="long">por WhatsApp</span></span>
+</a>
 <div class="toast" id="toast" role="status" aria-live="polite"></div>
 
 <script>
+/* Número de WhatsApp de LEÑA: código de país + área + número, sin espacios ni signos. Ej: 5491154211064 */
+var WHATSAPP_LENA = '';
 (function(){
-  var count=0, countEl=document.getElementById('cart-count'), toast=document.getElementById('toast'), t;
-  function show(msg){toast.textContent=msg;toast.classList.add('show');clearTimeout(t);t=setTimeout(function(){toast.classList.remove('show')},2600);}
+  var items=[], countEl=document.getElementById('cart-count'), toast=document.getElementById('toast'), t;
+  function show(msg){toast.textContent=msg;toast.classList.add('show');clearTimeout(t);t=setTimeout(function(){toast.classList.remove('show')},3000);}
   document.querySelectorAll('.add').forEach(function(b){
-    b.addEventListener('click',function(){count++;countEl.textContent=count;show(b.dataset.name+' agregado a tu pedido');});
+    b.addEventListener('click',function(){items.push(b.dataset.name);countEl.textContent=items.length;show(b.dataset.name+' agregado a tu pedido');});
   });
   document.getElementById('cart-btn').addEventListener('click',function(){
-    show(count? 'Tenés '+count+(count===1?' producto':' productos')+' en tu pedido. El envío por WhatsApp se activa en la versión final.' : 'Tu pedido está vacío. Agregá productos desde el catálogo.');
+    show(items.length? 'Tenés '+items.length+(items.length===1?' producto':' productos')+' en tu pedido. Tocá «Pedir» para enviarlo por WhatsApp.' : 'Tu pedido está vacío. Agregá productos desde el catálogo.');
+  });
+  var menuBtn=document.getElementById('menu-btn'), menu=document.getElementById('menu');
+  function setMenu(open){menu.classList.toggle('open',open);menuBtn.setAttribute('aria-expanded',open);menuBtn.setAttribute('aria-label',open?'Cerrar menú':'Abrir menú');}
+  menuBtn.addEventListener('click',function(){setMenu(!menu.classList.contains('open'));});
+  menu.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){setMenu(false);});});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape')setMenu(false);});
+  document.getElementById('wa-btn').addEventListener('click',function(e){
+    if(!WHATSAPP_LENA){e.preventDefault();show('El WhatsApp de LEÑA se activa cuando tengamos el número.');return;}
+    var txt='¡Hola LEÑA! Quiero hacer un pedido';
+    if(items.length){var c={};items.forEach(function(n){c[n]=(c[n]||0)+1});txt+=':\n'+Object.keys(c).map(function(n){return '• '+c[n]+' x '+n}).join('\n');}
+    this.href='https://wa.me/'+WHATSAPP_LENA+'?text='+encodeURIComponent(txt);
+    this.target='_blank';this.rel='noopener';
   });
 })();
 </script>
